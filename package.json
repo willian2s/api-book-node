@@ -1,0 +1,33 @@
+{
+  "name": "api-book-node",
+  "version": "1.0.0",
+  "description": "Api desenvolvida durande a leitura do livro \"Construindo APIs testáveis com Node.JS\" desenvolvido pelo Waldemar Neto",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "start": "npm run build && node dist/server.js",
+    "start:dev": "babel-node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willian2s/api-book-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willian2s/api-book-node/issues"
+  },
+  "homepage": "https://github.com/willian2s/api-book-node#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.11.5",
+    "@babel/core": "^7.11.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}

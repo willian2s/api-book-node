@@ -9,6 +9,8 @@ describe('Routes: Products', () => {
     request = supertest(app);
   })
 
+  const defaultId = '56cb91bdc3464f14678934ca'
+
   const defaultProduct = {
     name: 'Default product',
     description: 'product description',
@@ -17,7 +19,7 @@ describe('Routes: Products', () => {
 
   const expectedProduct = {
     __v: 0,
-    _id: '56cb91bdc3464f14678934ca',
+    _id: defaultId,
     name: 'Default product',
     description: 'product description',
     price: 100
@@ -43,6 +45,19 @@ describe('Routes: Products', () => {
         done(err);
       });
     });
+
+    context('when an id is specified', done => {
+      it('should return 200 with one product', done => {
+
+        request
+        .get(`/products/${defaultId}`)
+        .end((err, res) => {
+          expect(res.statusCode).to.eql(200);
+          expect(res.body).to.eql([expectedProduct]);
+          done(err);
+        })
+      })
+    })
   });
 
   after(async () => await app.database.connection.close());

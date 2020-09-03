@@ -11,9 +11,12 @@ describe('Controllers: Products', () => {
     }
   ];
 
+  const defaultRequest = {
+    params: {}
+  }
+
   describe('get() products', () => {
     it('should return a list of products', async () => {
-      const request = {};
       const response = {
         send: sinon.spy()
       };
@@ -23,7 +26,7 @@ describe('Controllers: Products', () => {
 
       const productsController = new ProductsController(Product);
 
-      await productsController.get(request, response);
+      await productsController.get(defaultRequest, response);
 
       sinon.assert.calledWith(response.send, defaultProduct);
     });

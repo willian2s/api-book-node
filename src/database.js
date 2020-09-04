@@ -1,7 +1,7 @@
-require('dotenv').config();
 import mongoose from 'mongoose';
+import config from 'config';
 
-const mongodbUrl = process.env.MONGODB_URL;
+const mongodbUrl = config.get('database.mongoUrl');
 
 const connect = () =>
   mongoose.connect(mongodbUrl, {

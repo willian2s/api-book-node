@@ -7,6 +7,7 @@
     "build": "babel src --out-dir dist",
     "start": "npm run build && node dist/server.js",
     "start:dev": "babel-node src/server.js",
+    "test": "npm run test:unit && npm run test:integration",
     "test:integration": "NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*_spec.js",
     "test:unit": "NODE_ENV=test mocha --opts test/unit/mocha.opts test/unit/**/*_spec.js"
   },
@@ -33,8 +34,9 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
-    "dotenv": "^8.2.0",
+    "config": "^3.3.1",
     "express": "^4.17.1",
-    "mongoose": "^5.10.2"
+    "mongoose": "^5.10.2",
+    "node-config": "0.0.2"
   }
 }

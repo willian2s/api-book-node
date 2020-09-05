@@ -1,5 +1,7 @@
   before(async () => {
-    global.app = await setupApp();
+    const app = await setupApp();
+
+    global.app = app;
     global.request = supertest(app);
   })
 

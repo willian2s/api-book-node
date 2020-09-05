@@ -4,6 +4,6 @@
   },
   "auth": {
     "key": "thisisaverysecurekey",
-    "tokenExpireIn": "7d"
+    "tokenExpiresIn": "7d"
   }
 }

@@ -3,8 +3,9 @@ import config from 'config';
 import bcrypt from 'bcrypt';
 
 class UsersController {
-  constructor(User) {
+  constructor(User, AuthService) {
     this.User = User;
+    this.AuthService = AuthService;
   }
 
   async get(req, res) {
@@ -69,32 +70,18 @@ class UsersController {
   }
 
   async authenticate(req, res) {
-    const { email, password } = req.body;
-    try {
-      const user = await this.User.findOne({ email });
-
-      if(!user.password == bcrypt.compareSync(password, user.password)) {
-        
-        throw new Error('User Unauthorized');
-      }
-
-      const token = jwt.sign(
-        {
-          name: user.name,
-          email: user.email,
-          password: user.password,
-          role: user.role,
-        },
-        config.get('auth.key'),
-        {
-          expiresIn: config.get('auth.tokenExpiresIn'),
-        },
-      );
-
-      res.send({ token })
-    } catch (err) {
-      res.sendStatus(401)
+    const authService = new this.AuthService(this.User);
+    const user = await authService.authenticate(req.body);
+    if(!user) {
+      return res.sendStatus(401);
     }
+    const token = this.AuthService.generateToken({
+      name: user.name,
+      email: user.email,
+      password: user.password,
+      role: user.role
+    });
+    return res.send({ token });
   }
 }
 

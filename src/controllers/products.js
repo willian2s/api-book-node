@@ -16,17 +16,16 @@ class ProductsController {
     const {
       params: { id }
     } = req;
+
     try {
-      const product = await this.Product.find({ _id: id});
-      res.send(product)
+      const product = await this.Product.find({ _id: id });
+      res.send(product);
     } catch (err) {
       res.status(400).send(err.message);
     }
   }
-
   async create(req, res) {
     const product = new this.Product(req.body);
-
     try {
       await product.save();
       res.status(201).send(product);
@@ -47,7 +46,7 @@ class ProductsController {
   async remove(req, res) {
     try {
       await this.Product.deleteOne({ _id: req.params.id });
-      res.sendStatus(204); 
+      res.sendStatus(204);
     } catch (err) {
       res.status(400).send(err.message);
     }

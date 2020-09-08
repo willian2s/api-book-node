@@ -32,7 +32,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-Está api foi desenvolvida realizar cadastro dos produtos e usuários. Foi desenvolvida utilizando Noede.js com Express e para lidar com a autenticação de usuários, foi utilizado Json Web Token.
+API desenvolvida para auxiliar no desenvolvimento de sistemas de gerenciamento de estoque, como recursos para cadastro de produtos e usuários. Foi desenvolvida utilizando Noede.js com Express e para lidar com a autenticação de usuários, foi utilizado Json Web Token.
 
 ## :rocket: Como testar
 

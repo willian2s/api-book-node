@@ -14,7 +14,7 @@ class ProductsController {
 
   async getById(req, res) {
     const {
-      params: { id }
+      params: { id },
     } = req;
 
     try {
@@ -24,6 +24,7 @@ class ProductsController {
       res.status(400).send(err.message);
     }
   }
+
   async create(req, res) {
     const product = new this.Product(req.body);
     try {

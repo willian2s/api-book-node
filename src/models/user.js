@@ -10,8 +10,8 @@ const schema = new mongoose.Schema({
   role: String,
 });
 
-schema.pre('save', async function(nex) {
-  if(!this.password || !this.isModified('password')) {
+schema.pre('save', async function (next) {
+  if (!this.password || !this.isModified('password')) {
     return next();
   }
   try {
@@ -20,7 +20,7 @@ schema.pre('save', async function(nex) {
   } catch (err) {
     next(err);
   }
-})
+});
 
 schema.set('toJSON', {
   transform: (doc, ret, options) => ({
@@ -28,7 +28,7 @@ schema.set('toJSON', {
     email: ret.email,
     name: ret.name,
     role: ret.role,
-  })
+  }),
 });
 
 const User = mongoose.model('User', schema);

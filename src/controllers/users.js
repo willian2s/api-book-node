@@ -1,7 +1,3 @@
-import jwt from 'jsonwebtoken';
-import config from 'config';
-import bcrypt from 'bcrypt';
-
 class UsersController {
   constructor(User, AuthService) {
     this.User = User;
@@ -19,7 +15,7 @@ class UsersController {
 
   async getById(req, res) {
     const {
-      params: { id }
+      params: { id },
     } = req;
 
     try {
@@ -42,7 +38,7 @@ class UsersController {
   }
 
   async update(req, res) {
-    const body = req.body;
+    const { body } = req;
     try {
       const user = await this.User.findById(req.params.id);
 
@@ -72,14 +68,14 @@ class UsersController {
   async authenticate(req, res) {
     const authService = new this.AuthService(this.User);
     const user = await authService.authenticate(req.body);
-    if(!user) {
+    if (!user) {
       return res.sendStatus(401);
     }
     const token = this.AuthService.generateToken({
       name: user.name,
       email: user.email,
       password: user.password,
-      role: user.role
+      role: user.role,
     });
     return res.send({ token });
   }

@@ -6,9 +6,9 @@
  <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&color=217EEB&labelColor=000000" alt="PRs welcome!" />
  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=217EEB&labelColor=000000">
  
- <img src="https://img.shields.io/github/issues/willian2s/together?color=217EEB&&labelColor=000000" alt="Issues" />
- <img src="https://img.shields.io/github/forks/willian2s/together?color=217EEB&&labelColor=000000" alt="Forks" />
- <img src="https://img.shields.io/github/stars/willian2s/together?color=217EEB&&labelColor=000000" alt="Stars" /> 
+ <img src="https://img.shields.io/github/issues/willian2s/product-management-api?color=217EEB&&labelColor=000000" alt="Issues" />
+ <img src="https://img.shields.io/github/forks/willian2s/product-management-api?color=217EEB&&labelColor=000000" alt="Forks" />
+ <img src="https://img.shields.io/github/stars/willian2s/product-management-api?color=217EEB&&labelColor=000000" alt="Stars" /> 
 </p>
 
 <p align="center">
